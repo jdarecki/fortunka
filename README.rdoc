@@ -20,16 +20,22 @@ Konfoguracja will_paginate w aplikacji
 Zmiany w pliku /app/models/fortune.rb:
 
 	class Fortune < ActiveRecord::Base
+	
 	  cattr_reader :per_page
+	  
 	  @@per_page = 5
+	  
 	end
 
 
 Zmiany w pliku app/controlers/fortunes_controller.rb:
 
 	def index
+	
 	    @fortunes = Fortune.paginate :page => params[:page]
+		
 	  # @fortunes = Fortune.all  
+	  
 
 
 Do pliku app/views/fortunes/index.html.erb należy dodać linie wyświetlającą panel do nawigacji:
