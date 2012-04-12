@@ -1,15 +1,15 @@
 == Fortunka + will_paginate
 
 - Prosta aplikacja Rails - Fortunka
-- Program mo¿na zobaczyæ pod adresem: fortunka.hall2012.pl
+- Program mozna zobaczyc pod adresem: fortunka.hall2012.pl
 
 
 == Instalacja Will_paginate
 
-1. Do pliku Gemfile nale¿y dodaæ liniê:
+1. Do pliku Gemfile nalezy dodac linie:
        gem  ‘will_paginate’, ‘~> 3.0’
 
-2. Nastêpnie:
+2. Nastepnie:
        bundle install –binstubs
 
 3. Zmiany w pliku /app/models/fortune.rb:
@@ -22,6 +22,6 @@
       def index @fortunes = Fortune.paginate :page => params[:page]
       # @fortunes = Fortune.all
        
-5. Do pliku app/views/fortunes/index.html.erb nale¿y dodaæ linie wyœwietlaj¹c¹ panel do nawigacji:
+5. Do pliku app/views/fortunes/index.html.erb nalezy dodac linie wyswietlajaca panel do nawigacji:
       <pre><%= will_paginate @posts %></pre>      
 
