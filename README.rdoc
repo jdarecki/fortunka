@@ -5,40 +5,40 @@
 
 == Instalacja Will_paginate
 
-Do pliku Gemfile należy dodać linię:
+<p>Do pliku Gemfile należy dodać linię:</p>
 
-	gem 'will_paginate', '~> 3.0'
+	<pre>gem 'will_paginate', '~> 3.0'</pre>
 
     
-Następnie:
+<p>Następnie:</p>
 
-	bundle install --binstubs    
+	<pre>bundle install --binstubs</pre>    
 
 
-Konfoguracja will_paginate w aplikacji
+<p>Konfoguracja will_paginate w aplikacji</p>
 
-Zmiany w pliku /app/models/fortune.rb:
+<p>Zmiany w pliku /app/models/fortune.rb:</p>
 
-	class Fortune < ActiveRecord::Base
+   <pre>class Fortune < ActiveRecord::Base
 	
 	  cattr_reader :per_page
 	  
 	  @@per_page = 5
 	  
-	end
+	end</pre>
 
 
-Zmiany w pliku app/controlers/fortunes_controller.rb:
+<p>Zmiany w pliku app/controlers/fortunes_controller.rb:<p>
 
-	def index
+	<pre>def index
 	
 	    @fortunes = Fortune.paginate :page => params[:page]
 		
-	  # @fortunes = Fortune.all  
+	  # @fortunes = Fortune.all  </pre>
 	  
 
 
-Do pliku app/views/fortunes/index.html.erb należy dodać linie wyświetlającą panel do nawigacji:
+<p>Do pliku app/views/fortunes/index.html.erb należy dodać linie wyświetlającą panel do nawigacji:</p>
 
-	<%= will_paginate @posts %>
+	<pre><%= will_paginate @posts %></pre>
 	
