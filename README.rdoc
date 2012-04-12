@@ -1,44 +1,27 @@
 == Fortunka + will_paginate
 
-1. Prosta aplikacja Rails - Fortunka
-2. Program moÅ¼na zobaczyÄ‡ pod adresem: http://fortunka.hall2012.pl
+- Prosta aplikacja Rails - Fortunka
+- Program mo¿na zobaczyæ pod adresem: fortunka.hall2012.pl
+
 
 == Instalacja Will_paginate
 
-<p>Do pliku Gemfile naleÅ¼y dodaÄ‡ liniÄ™:</p>
+1. Do pliku Gemfile nale¿y dodaæ liniê:
+       gem  ‘will_paginate’, ‘~> 3.0’
 
-	<pre>gem 'will_paginate', '~> 3.0'</pre>
+2. Nastêpnie:
+       bundle install –binstubs
 
-    
-<p>NastÄ™pnie:</p>
+3. Zmiany w pliku /app/models/fortune.rb:
+      class Fortune < ActiveRecord::Base
+        cattr_reader :per_page
+        @@per_page = 5
+       end
 
-	<pre>bundle install --binstubs</pre>    
+4. Zmiany w pliku app/controlers/fortunes_controller.rb:
+      def index @fortunes = Fortune.paginate :page => params[:page]
+      # @fortunes = Fortune.all
+       
+5. Do pliku app/views/fortunes/index.html.erb nale¿y dodaæ linie wyœwietlaj¹c¹ panel do nawigacji:
+      <pre><%= will_paginate @posts %></pre>      
 
-
-<p>Konfoguracja will_paginate w aplikacji</p>
-
-<p>Zmiany w pliku /app/models/fortune.rb:</p>
-
-   <pre>class Fortune < ActiveRecord::Base
-	
-	  cattr_reader :per_page
-	  
-	  @@per_page = 5
-	  
-	end</pre>
-
-
-<p>Zmiany w pliku app/controlers/fortunes_controller.rb:<p>
-
-	<pre>def index
-	
-	    @fortunes = Fortune.paginate :page => params[:page]
-		
-	  # @fortunes = Fortune.all  </pre>
-	  
-
-
-<p>Do pliku app/views/fortunes/index.html.erb naleÅ¼y dodaÄ‡ linie wyÅ›wietlajÄ…cÄ… panel do nawigacji:</p>
-
-	<pre><%= will_paginate @posts %></pre>
-	
