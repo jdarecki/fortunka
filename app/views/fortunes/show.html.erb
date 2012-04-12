@@ -1,0 +1,17 @@
+<table class="btn-inverse"><tr><td>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cytat:</b>
+  <%= @fortune.quotation %>
+</p>
+
+<p>
+  <b>Autor:</b>
+  <%= @fortune.source %>
+</p>
+
+
+<div class="btn"><%= link_to 'Edycja', edit_fortune_path(@fortune) %></div>
+<div class="btn"><%= link_to 'Powrót', fortunes_path %></div>
+</td></tr></table>
